@@ -9,12 +9,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #cbb393;
+    background-color: #5c5955;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .game-ui {
-    background-color: white;
+    background-color: rgb(61, 58, 58);
     padding: 25px;
     border-radius: 20px;
     text-align: center;

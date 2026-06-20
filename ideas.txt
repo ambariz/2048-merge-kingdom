@@ -1,0 +1,2 @@
+- images for the tiles
+- automatic new tiles
