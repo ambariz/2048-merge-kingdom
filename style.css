@@ -57,7 +57,7 @@ button {
 .cell {
     width: 80px;
     height: 80px;
-    background-color: darkorange;
+    background-color: rgb(180, 123, 49);
     border-radius: 12px;
 
     display: flex;

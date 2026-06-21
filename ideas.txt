@@ -1,2 +1,12 @@
-- images for the tiles
+completed 
+
 - automatic new tiles
+
+not completed
+
+- images for the tiles
+- css is not right
+- correct colour theme
+- correct order of the tiles 
+
+
