@@ -15,6 +15,10 @@ let grid = [];
 let score = 0;
 
 const scoreElement = document.getElementById("score");
+const restartButton = document.getElementById("restart")
+const bestElement = document.getElementById("best");
+let bestScore = localStorage.getItem("bestScore") || 0;
+bestElement.textContent = bestScore;
 
 document.addEventListener("keydown", (event) => {
 
@@ -28,9 +32,12 @@ document.addEventListener("keydown", (event) => {
     {
         addRandomTile();
         drawGrid();
+        checkWin();
+        checkGameOver();
     }
 });
 
+restartButton.addEventListener("click", startGame);
 
 function createGrid() {
     grid = Array.from( 
@@ -75,11 +82,13 @@ function drawGrid()
             if (value !== 0) 
             {
                 cell.textContent = buildings[value];
+                cell.dataset.value = value;
             }
             gridElement.appendChild(cell);
         }
     }
     scoreElement.textContent = score;
+    bestElement.textContent = bestScore;
 }
 
 
@@ -93,6 +102,12 @@ function slide(row)
         {
             filtered[i] *= 2;
             score += filtered[i];
+            if (score > bestScore)
+            {
+                bestScore = score;
+
+                localStorage.setItem("bestScore",bestScore);
+            }
             filtered.splice(i + 1, 1);
         }
     }
@@ -125,12 +140,15 @@ function moveRight()
 
     for (let r = 0; r < SIZE; r++)
     {
-        const reverse = grid[r].slide().reverse();
+        const reversed = grid[r].slice().reverse();
+
         const newRow = slide(reversed).reverse();
-        if (newRow.some((val,i) => val != grid[r][i]))
+
+        if (newRow.some((val, i) => val !== grid[r][i]))
         {
             moved = true;
         }
+
         grid[r] = newRow;
     }
     return moved;
@@ -175,14 +193,65 @@ function moveDown()
             {
                 moved = true;
             }
-            grid[r][c] = newColumn;
+            grid[r][c] = newColumn[r];
         }
     }
     return moved;
 }
 
+
+function checkWin()
+{
+    for (let r = 0; r < SIZE; r++)
+    {
+        for (let c = 0; c < SIZE; c++)
+        {
+            if (grid[r][c] === 64)
+            {
+                alert("YOU BUILT THE KINGDOM!");
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+function canMoveAny()
+{
+    for (let r = 0; r < SIZE; r++)
+    {
+        for (let c = 0; c < SIZE; c++)
+        {
+            if (grid[r][c] === 0)
+            {
+                return true;
+            }
+            if (c < SIZE - 1 && grid[r][c] === grid[r][c+1])
+            {
+                return true;
+            }
+            if (r < SIZE - 1 && grid[r][c] === grid[r + 1][c])
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+
+function checkGameOver()
+{
+    if (!canMoveAny())
+    {
+        alert("GAME OVER! YOUR KINGDOME HAS FALLEN!!!!")
+    }
+}
+
+
 function startGame() 
 {
+    score = 0;
     createGrid();
     addRandomTile();
     addRandomTile();

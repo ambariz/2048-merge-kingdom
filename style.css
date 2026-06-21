@@ -66,3 +66,10 @@ button {
 
     font-size: 28px;
 }
+
+.cell[data-value="2"] {background-color: lightblue;}
+.cell[data-value="4"] {background-color: rgb(34, 94, 18);}
+.cell[data-value="8"] {background-color: red;}
+.cell[data-value="16"] {background-color: white;}
+.cell[data-value="32"] {background-color: yellow;}
+.cell[data-value="64"] {background-color: pink;}
