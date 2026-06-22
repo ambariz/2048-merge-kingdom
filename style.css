@@ -9,8 +9,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2B2118;
+    background-color: #724d2c;
     font-family: Arial, Helvetica, sans-serif;
+    backdrop-filter: blur(4px);
 }
 
 .game-ui {
@@ -19,7 +20,10 @@ body {
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    width: 420px;
+    width: 500px;
+    min-height: 500px;
+    flex-direction: column;
+    justify-content: center;
 }
 
 h1 {
@@ -43,8 +47,14 @@ button {
     border: none;
     border-radius: 10px;
     border-radius: 10px;
-    background-color: #B8860B;
-    color: #F4E6C8;
+    background:
+        linear-gradient(
+            to bottom,
+            #C9A227,
+            #8B6508
+        );
+
+    color: #F5E6C8;
     cursor: pointer;
     margin-bottom: 15px;
 }
