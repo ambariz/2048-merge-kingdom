@@ -7,8 +7,11 @@ const buildings = {
     4 : "house",
     8 : "village",
     16 : "town",
-    32 : "palace",
-    64 : "king"
+    32 : "castle",
+    64 : "king",
+    128 : "empire",
+    256 : "",
+    512 : "",
 }
 
 let grid = [];
@@ -32,8 +35,10 @@ document.addEventListener("keydown", (event) => {
     {
         addRandomTile();
         drawGrid();
-        checkWin();
-        checkGameOver();
+        setTimeout(() => {
+            checkWin();
+            checkGameOver();
+        }, 100);
     }
 });
 
@@ -81,8 +86,10 @@ function drawGrid()
             const value = grid[r][c];
             if (value !== 0) 
             {
-                cell.textContent = buildings[value];
-                cell.dataset.value = value;
+                const img = document.createElement("img");
+                img.src = `assets/${buildings[value]}.jpg`;
+                img.classList.add("tile-image");
+                cell.appendChild(img);
             }
             gridElement.appendChild(cell);
         }

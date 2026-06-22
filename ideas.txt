@@ -1,12 +1,14 @@
 completed 
 
 - automatic new tiles
+- images for the tiles
 
 not completed
 
-- images for the tiles
+- more images for the tiles
 - css is not right
 - correct colour theme
 - correct order of the tiles 
-
+- after completing 2048 then whole tile will be one image 
+(check this)
 

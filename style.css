@@ -94,3 +94,10 @@ button:hover {
 button {
     transition: transform 0.2 ease;
 }
+
+.tile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: contain;
+}
