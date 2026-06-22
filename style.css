@@ -9,12 +9,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #5c5955;
+    background-color: #2B2118;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .game-ui {
-    background-color: rgb(61, 58, 58);
+    background-color: #3E2F22;
     padding: 25px;
     border-radius: 20px;
     text-align: center;
@@ -23,7 +23,7 @@ body {
 }
 
 h1 {
-    color: rgb(126, 108, 0);
+    color: #D4AF37;
     margin-bottom: 10px;
 }
 
@@ -43,8 +43,8 @@ button {
     border: none;
     border-radius: 10px;
     border-radius: 10px;
-    background-color: rgb(114, 95, 0);
-    color: white;
+    background-color: #B8860B;
+    color: #F4E6C8;
     cursor: pointer;
     margin-bottom: 15px;
 }
@@ -73,7 +73,7 @@ button {
 .cell {
     width: 80px;
     height: 80px;
-    background-color: rgb(180, 123, 49);
+    background-color: #8C6239;
     border-radius: 12px;
 
     display: flex;
@@ -117,7 +117,7 @@ button {
 }
 
 .start-card {
-    background-color: rgb(159, 142, 35);
+    background-color: #6B4F2A;
     padding: 30px;
     border-radius: 20px;
     text-align: center;
@@ -126,7 +126,7 @@ button {
 
 .start-card h2 {
     margin-bottom: 15px;
-    color: gold;
+    color: #FFD700;
 }
 
 .start-card p {
@@ -144,10 +144,11 @@ button {
 }
 
 .popup-card {
-    background-color: #3d3a3a;
+    background-color: #3E2F22;
     padding: 30px;
     border-radius: 20px;
     text-align: center;
+    color: #F4E6C8;
 }
 
 .stats {
@@ -158,4 +159,11 @@ button {
 
 #restart {
     margin-top: 10px;
+}
+
+.game-ui,
+.stats,
+.score-bar,
+p {
+    color: #F4E6C8;
 }
