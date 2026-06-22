@@ -39,6 +39,8 @@ let hasWon = false;
 const startScreen = document.getElementById("start-screen");
 const playButton = document.getElementById("play-button");
 
+const highestBuildingElement = document.getElementById("highest-building");
+
 let moves = 0;
 const movesElement = document.getElementById("moves");
 
@@ -113,6 +115,8 @@ function drawGrid()
             const cell = document.createElement("div");
             cell.classList.add("cell");
             const value = grid[r][c];
+            const highestTile = getHighestTile();
+            highestBuildingElement.textContent = buildings[highestTile];
             if (value !== 0) 
             {
                 const img = document.createElement("img");
@@ -128,6 +132,22 @@ function drawGrid()
     movesElement.textContent = moves;
 }
 
+function getHighestTile()
+{
+    let highest = 2;
+    for (let r = 0; r < SIZE; r++)
+    {
+        for (let c = 0; c < SIZE; c++)
+        {
+            if (grid[r][c] > highest)
+            {
+                highest = grid[r][c];
+
+            }
+        }
+    }
+    return highest;
+}
 
 function slide(row) 
 {

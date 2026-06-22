@@ -29,7 +29,7 @@ h1 {
 
 p {
     max-width: 320px;
-    margin-bottom: 0 auto 15px auto;
+    margin: 0 auto 15px auto;
 }
 
 .score-bar {
@@ -148,4 +148,14 @@ button {
     padding: 30px;
     border-radius: 20px;
     text-align: center;
+}
+
+.stats {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#restart {
+    margin-top: 10px;
 }
