@@ -10,8 +10,10 @@ const buildings = {
     32 : "castle",
     64 : "king",
     128 : "empire",
-    256 : "",
-    512 : "",
+    256 : "nation",
+    512 : "continent",
+    1024 : "world",
+    2048 : "galaxy"
 }
 
 let grid = [];
@@ -22,6 +24,16 @@ const restartButton = document.getElementById("restart")
 const bestElement = document.getElementById("best");
 let bestScore = localStorage.getItem("bestScore") || 0;
 bestElement.textContent = bestScore;
+
+const moveLight = new Audio("assets/sounds/move-light.mp3");
+const moveHeavy = new Audio("assets/sounds/move-heavy.mp3");
+const swordLight = new Audio("assets/sounds/sword-light.mp3");
+const swordHeavy = new Audio("assets/sounds/sword-heavy.mp3");
+const victory = new Audio("assets/sounds/victory.mp3");
+const gameStart = new Audio("assets/sounds/game-start.mp3");
+const highScore = new Audio("assets/sounds/high-score.mp3");
+
+let highScoreReached = false;
 
 document.addEventListener("keydown", (event) => {
 
@@ -109,13 +121,44 @@ function slide(row)
         {
             filtered[i] *= 2;
             score += filtered[i];
+
+            const newValue = filtered[i];
+
+            if (newValue <= 8)
+            {
+                moveLight.currentTime = 0;
+                moveLight.play();
+            }
+            else if (newValue <= 64)
+            {
+                moveHeavy.currentTime = 0;
+                moveHeavy.play();
+            }
+            else if (newValue <= 256)
+            {
+                swordLight.currentTime = 0;
+                swordLight.play();
+            }
+            else {
+                swordHeavy.currentTime = 0;
+                swordHeavy.play();
+            }
+
             if (score > bestScore)
             {
                 bestScore = score;
 
                 localStorage.setItem("bestScore",bestScore);
+
+                if (!highScoreReached)
+                {
+                    highScoreReached = true;
+                    highScore.currentTime = 0;
+                    highScore.play();
+                }
             }
             filtered.splice(i + 1, 1);
+
         }
     }
     while (filtered.length < SIZE)
@@ -213,9 +256,14 @@ function checkWin()
     {
         for (let c = 0; c < SIZE; c++)
         {
-            if (grid[r][c] === 64)
+            if (grid[r][c] === 2048 && !hasWon)
             {
-                alert("YOU BUILT THE KINGDOM!");
+                hasWon = true;
+                victory.currentTime = 0;
+                victory.play();
+                setTimeout(() => {
+                    alert("YOU BUILT THE ULTIMATE 2048 KINGDOM!");
+                }, 300); 
                 return true;
             }
         }
@@ -259,10 +307,14 @@ function checkGameOver()
 function startGame() 
 {
     score = 0;
+    hasWon = false;
+    highScoreReached = false;
     createGrid();
     addRandomTile();
     addRandomTile();
     drawGrid();
+    gameStart.currentTime = 0;
+    gameStart.play();
 }
 
 startGame();

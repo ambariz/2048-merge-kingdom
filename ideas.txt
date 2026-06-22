@@ -11,4 +11,3 @@ not completed
 - correct order of the tiles 
 - after completing 2048 then whole tile will be one image 
 (check this)
-
