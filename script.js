@@ -34,6 +34,10 @@ const gameStart = new Audio("assets/sounds/game-start.mp3");
 const highScore = new Audio("assets/sounds/high-score.mp3");
 
 let highScoreReached = false;
+let hasWon = false;
+
+const startScreen = document.getElementById("start-screen");
+const playButton = document.getElementById("play-button");
 
 document.addEventListener("keydown", (event) => {
 
@@ -62,6 +66,15 @@ function createGrid() {
         () => Array(SIZE).fill(0)
     );
 }
+
+playButton.addEventListener("click", () => {
+    startScreen.style.display = "none";
+
+    gameStart.currentTime = 0;
+    gameStart.play();
+
+    startGame();
+})
 
 createGrid();
 console.log(grid);
@@ -262,7 +275,7 @@ function checkWin()
                 victory.currentTime = 0;
                 victory.play();
                 setTimeout(() => {
-                    alert("YOU BUILT THE ULTIMATE 2048 KINGDOM!");
+                    document.getElementById("win-screen").style.display = "flex";
                 }, 300); 
                 return true;
             }
@@ -316,5 +329,3 @@ function startGame()
     gameStart.currentTime = 0;
     gameStart.play();
 }
-
-startGame();

@@ -21,6 +21,29 @@
         <button id = "restart">Restart</button>
         <div id = "grid" class = "grid"></div>
     </div>
+
+    <div id="start-screen" class="start-screen">
+        <div class="start-card">
+            <h2>Merge Kingdom</h2>
+            <p>
+                Merge matching building to grow your kingdom.
+                Reach the 2048 Kingdom tile to win!
+            </p>
+            <p>
+                Use Arrow Keys to move.
+            </p>
+            <button id="play-button">Start Game</button>
+        </div>
+    </div>
+
+    <div id="win-screen" class="popup-screen">
+        <div class="popup-card">
+            <h2>Victory!</h2>
+            <p>You built the Ultimate Kingdom!</p>
+            <button onclick="startGame()">Play Again</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

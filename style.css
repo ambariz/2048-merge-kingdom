@@ -105,3 +105,47 @@ button {
     border-radius: 12px;
     object-fit: contain;
 }
+
+.start-screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.start-card {
+    background-color: rgb(159, 142, 35);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 350px;
+}
+
+.start-card h2 {
+    margin-bottom: 15px;
+    color: gold;
+}
+
+.start-card p {
+    margin-bottom: 20px;
+}
+
+.popup-screen {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-card {
+    background-color: #3d3a3a;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
