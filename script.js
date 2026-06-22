@@ -39,6 +39,9 @@ let hasWon = false;
 const startScreen = document.getElementById("start-screen");
 const playButton = document.getElementById("play-button");
 
+let moves = 0;
+const movesElement = document.getElementById("moves");
+
 document.addEventListener("keydown", (event) => {
 
     let moved = false;
@@ -49,6 +52,7 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowDown") moved = moveDown();
     if (moved) 
     {
+        moves++;
         addRandomTile();
         drawGrid();
         setTimeout(() => {
@@ -121,6 +125,7 @@ function drawGrid()
     }
     scoreElement.textContent = score;
     bestElement.textContent = bestScore;
+    movesElement.textContent = moves;
 }
 
 
@@ -312,14 +317,19 @@ function checkGameOver()
 {
     if (!canMoveAny())
     {
-        alert("GAME OVER! YOUR KINGDOME HAS FALLEN!!!!")
+        document.getElementById("gameover-screen").style.display = "flex";
     }
 }
 
 
 function startGame() 
 {
+
+    document.getElementById("win-screen").style.display = "none";
+    document.getElementById("gameover-screen").style.display = "none";
+    
     score = 0;
+    moves = 0;
     hasWon = false;
     highScoreReached = false;
     createGrid();

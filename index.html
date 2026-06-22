@@ -15,6 +15,7 @@
 
         <div class = "score-bar">
             <div>Score: <span id = "score">0</span></div>
+            <div>Moves: <span id = "moves">0</span></div>
             <div>Best: <span id = "best">0</span></div>
         </div>
 
@@ -40,7 +41,16 @@
         <div class="popup-card">
             <h2>Victory!</h2>
             <p>You built the Ultimate Kingdom!</p>
+            <br>
             <button onclick="startGame()">Play Again</button>
+        </div>
+    </div>
+
+    <div id="gameover-screen" class="popup-screen">
+        <div class="popup-card">
+            <h2>Game Over!</h2>
+            <p>Your kingdom has fallen.</p>
+            <button onclick="startGame()">Try Again</button>
         </div>
     </div>
 
