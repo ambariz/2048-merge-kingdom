@@ -1,11 +1,11 @@
-# Merge Kingdom
+# 2048 Merge Kingdom
 
 A medieval kingdom building puzzle game inspired by 2048.  
 Merge matching structures to grow your civilization from a humble tent into a legendary empire or galaxy ;)
 
-[![Click to Play](https://img.shields.io/badge/CLICK%20ME%20TO%20PLAY-itch.io-red?style=for-the-badge&logo=itchdotio)](https://ambariz.itch.io/)
+[![Click to Play](https://img.shields.io/badge/CLICK%20ME%20TO%20PLAY-itch.io-red?style=for-the-badge&logo=itchdotio)](https://ambariz.itch.io/merge-kingdom)
 
-**LINK :** https://ambariz.itch.io/
+**LINK :** https://ambariz.itch.io/merge-kingdom
 
 ---
 
